@@ -1,38 +1,90 @@
-.App {
+/* src/App.css */
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background: linear-gradient(135deg, #dd5877 0%, #179f9c 100%);
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.search-bar {
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  width: 80%;
+  max-width: 500px;
+  border: 3px solid #60201a;
+  border-radius: 10px;
+  outline: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.pokemon-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.pokemon-card {
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  border-radius: 20px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 20px;
+  text-align: center;
+  width: 200px;
+  perspective: 1000px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pokemon-card:hover {
+  transform: translateY(-10px) rotateY(10deg) rotateX(10deg);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.2);
+}
+
+.pokemon-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.pokemon-card h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #2e0707;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+
+.pokemon-card p {
+  font-size: 14px;
+  color: #231616;
+  margin: 5px 0;
+}
+
+.pokemon-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.15), transparent);
+  border-radius: 20px;
+  z-index: -1;
+  transition: opacity 0.3s;
+}
+
+.pokemon-card:hover::before {
+  opacity: 1;
 }
